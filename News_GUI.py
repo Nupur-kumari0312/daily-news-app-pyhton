@@ -8,7 +8,8 @@ from PIL import ImageTk, Image
 class NewsApp:
     def __init__(self):
         # fetch data
-        self.data= requests.get("https://newsapi.org/v2/top-headlines?country=us&apiKey=1a24cb14c355493db2c3be9a8392ae1c").json()
+        api_key = "1a24cb14c355493db2c3be9a8392ae1c"
+        self.data= requests.get(f"https://newsapi.org/v2/top-headlines?country=us&apiKey={api_key}").json()
         # initialize GUI load
         self.load_gui()
         #load 1st news item
