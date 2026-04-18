@@ -4,11 +4,14 @@ import requests
 from tkinter import *
 from urllib.request import urlopen
 from PIL import ImageTk, Image
+from dotenv import load_dotenv
+import os
 
 class NewsApp:
     def __init__(self):
         # fetch data
-        api_key = "1a24cb14c355493db2c3be9a8392ae1c"
+        load_dotenv()
+        api_key = os.getenv("API_KEY")
         self.data= requests.get(f"https://newsapi.org/v2/top-headlines?country=us&apiKey={api_key}").json()
         # initialize GUI load
         self.load_gui()
